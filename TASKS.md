@@ -20,9 +20,9 @@
 - [x] Implement Section 5 tuning/evaluation workflow with runtime-conscious simplification.
 - [x] Document explicit agent-made bug and correction (serialization failure from lambda transformers).
 - [x] Increase Section 5 tuning budget moderately (18 iterations, wider XGBoost search) while keeping runtime practical.
-- [ ] Run real training and save real artifacts in `artifacts/`.
+- [x] Run real training and save real artifacts in `artifacts/`.
 - [x] Complete Sections 4-6 with evidence-based results and final narrative.
-- [ ] Build appendix-ready agent usage evidence and decision table.
+- [x] Build appendix-ready agent usage evidence and decision table.
 
 ## Immediate Next Step
 
