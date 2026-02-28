@@ -1,0 +1,9 @@
+__pycache__/
+*.pyc
+.pytest_cache/
+.venv/
+tmp_smoke_run/
+artifacts/*.joblib
+artifacts/*.json
+artifacts/*.csv
+artifacts/figures/*.png
