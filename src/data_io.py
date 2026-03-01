@@ -10,7 +10,7 @@ import pandas as pd
 from src.utils import ensure_dir
 
 
-DEFAULT_DATA_PATH = Path("data/raw/WA_Fn-UseC_-Telco-Customer-Churn.csv")
+DEFAULT_DATA_PATH = Path("data/raw/Telecom_customer churn.csv")
 
 
 def load_raw_data(csv_path: Path | str = DEFAULT_DATA_PATH) -> pd.DataFrame:

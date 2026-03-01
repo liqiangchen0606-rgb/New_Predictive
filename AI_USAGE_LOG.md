@@ -111,9 +111,19 @@ Track meaningful AI-assisted work for appendix evidence.
 - Stage: Section 4
 - Prompt/Task: Test whether the engineered features improve performance beyond the simplified retained baseline
 - AI Output Summary: Added a second dedicated Section 4 ablation cell comparing the dropped-feature baseline against the same feature set plus engineered variables, then added a summary cell identifying the strongest-performing variant across the two tests.
-- Manual Verification: User reviewed the ablation summary and confirmed that the engineered-feature variant produced a modest PR-AUC improvement after the selected high-missing fields were dropped.
+- Manual Verification: User reviewed the ablation summary and confirmed that the engineered-feature variant did not improve PR-AUC relative to the dropped-feature baseline.
+- Decision: Modified
+- Notes: This changed the feature-set conclusion: engineered features remain documented as a tested candidate, but they are not retained in the default final pipeline unless later reruns show a different result.
+
+## Entry 8C - Section 4 Feature-Set Refinement Before Section 5
+
+- Date: 2026-02-26
+- Stage: Section 4
+- Prompt/Task: Resolve the inconsistency between the default Section 3 pipeline and the ablation result before moving into final benchmarking/tuning
+- AI Output Summary: Updated the notebook so Section 3 now keeps the dropped-feature, no-engineering baseline as the default final preparation path; retained engineered features only as a separate candidate branch for Section 4 ablation; reordered Section 4 so feature-set ablation occurs before the final model-family comparison step.
+- Manual Verification: User identified that the previous setup would have mixed a feature set not supported by the ablation into later benchmarking.
 - Decision: Accepted
-- Notes: This supports retaining the final combined feature set while keeping the gain framed as modest rather than dramatic.
+- Notes: This issue was caught during Section 4, before the final Section 5 workflow should be rerun on the finalized feature set.
 
 ## Entry 9 - Agent Metric Framing Mistake After Section 4 (Corrected)
 
@@ -184,3 +194,13 @@ Track meaningful AI-assisted work for appendix evidence.
 - Manual Verification: User reviewed the generated Section 6 tables and requested display refinements (hide index, show full text) rather than any metric changes.
 - Decision: Accepted
 - Notes: Section 6 remains non-modelling: it does not rerun training and does not touch the test set again.
+
+## Entry 16 - Section 4 Final Benchmark Rerun After Feature-Set Selection
+
+- Date: 2026-02-26
+- Stage: Section 4
+- Prompt/Task: Finalize the feature set immediately after the Section 4 ablation tests, then rerun the Section 4 benchmark before carrying the workflow into Section 5
+- AI Output Summary: After the ablation showed that engineered features should remain a tested candidate rather than a default retained step, the notebook was updated so the dropped-feature, no-engineering baseline became the default final preparation path, and the Section 4 model comparison was rerun on that finalized feature set before Section 5 tuning continued.
+- Manual Verification: Current artifacts confirm the finalized Section 4 state: `feature_schema.json` marks `engineered_features_used_in_final_pipeline` as `false`, and `model_comparison.csv` reflects the refreshed benchmark on that feature set.
+- Decision: Accepted
+- Notes: This keeps the chronology correct: the feature-set correction and final benchmark rerun happen in Section 4, before the later tuning and held-out test evaluation stages.

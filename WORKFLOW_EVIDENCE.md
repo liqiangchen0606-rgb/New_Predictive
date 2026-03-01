@@ -61,7 +61,11 @@ All notable coursework-repo changes are recorded here.
     - added separate Section 4 ablation tests for:
       - dropping selected high-missing lower-priority fields
       - evaluating whether engineered features add value beyond the simplified baseline
-    - added a Section 4 ablation summary cell to identify the strongest-performing feature-set variant before Section 5
+    - added a Section 4 ablation summary cell to identify the strongest-performing feature-set variant before the final benchmark step
+    - refined the notebook after the ablation review:
+      - the default Section 3 pipeline now keeps the dropped-feature, no-engineering baseline
+      - engineered features remain available only as a candidate branch for ablation testing
+      - Section 4 now treats feature-set ablation as a decision step before the final model-family comparison is rerun
     - corrected metric framing after review:
       - PR-AUC kept as primary for business alignment (identifying churners)
       - ROC-AUC retained as complementary reporting metric because the dataset is relatively balanced
@@ -78,9 +82,16 @@ All notable coursework-repo changes are recorded here.
     - loaded saved metrics, threshold, tuning, and split artifacts to populate final model summary and business interpretation
     - added deployment plan, model risk/limitation review, fairness considerations, improvement roadmap, and concluding paragraph
     - refined notebook presentation by hiding the summary index and showing full wrapped text in Section 6 narrative tables
-- Data verification:
+  - Data verification:
   - Confirmed successful read from `data/raw/Telecom_customer churn.csv`.
   - Observed loaded schema shape `(100000, 100)` for subsequent target-column confirmation.
+
+### Final Section 4 to Section 6 alignment
+
+- After the Section 4 ablation review, the default final pipeline was fixed to the dropped-feature, no-engineering baseline before continuing to later stages.
+- The final Section 4 model comparison was rerun on that finalized feature set.
+- Section 5 tuning and held-out evaluation were then rerun on the same finalized feature set.
+- Final saved artifacts (`feature_schema.json`, `model_comparison.csv`, `tuning_summary.json`, and `metrics.json`) therefore now reflect one consistent end-to-end pipeline.
 
 ### Removed
 

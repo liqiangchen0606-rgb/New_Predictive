@@ -86,7 +86,7 @@ def _try_save_confusion_matrix_figure(cm: np.ndarray, out_path: Path) -> None:
 
 def evaluate_saved_model(
     model_path: Path | str = "artifacts/best_model.joblib",
-    data_path: Path | str = "data/raw/WA_Fn-UseC_-Telco-Customer-Churn.csv",
+    data_path: Path | str = "data/raw/Telecom_customer churn.csv",
     artifact_dir: Path | str = "artifacts",
     target_col: str = "churn",
     random_state: int = 42,
@@ -119,7 +119,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument(
         "--data-path",
         type=str,
-        default="data/raw/WA_Fn-UseC_-Telco-Customer-Churn.csv",
+        default="data/raw/Telecom_customer churn.csv",
     )
     parser.add_argument("--artifact-dir", type=str, default="artifacts")
     return parser.parse_args()

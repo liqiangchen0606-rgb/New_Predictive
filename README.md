@@ -32,13 +32,13 @@ Section 4 includes XGBoost benchmarking. On macOS, XGBoost may require OpenMP ru
 brew install libomp
 ```
 
-If XGBoost cannot load, the notebook fallback continues with non-XGBoost models.
+If XGBoost cannot load, Section 4 benchmarking can still run without it, but the full Section 5 tuning workflow requires XGBoost to be available.
 
 ## Data Download (Kaggle)
 
 Expected file location:
 
-- `data/raw/WA_Fn-UseC_-Telco-Customer-Churn.csv`
+- `data/raw/Telecom_customer churn.csv`
 
 Example using Kaggle CLI:
 
@@ -48,20 +48,20 @@ kaggle datasets download -d abhinav89/telecom-customer -p data/raw --unzip
 
 If the extracted file has a different name, rename it to:
 
-- `WA_Fn-UseC_-Telco-Customer-Churn.csv`
+- `Telecom_customer churn.csv`
 
 ## Run Training
 
 From repo root:
 
 ```bash
-python -m src.train --data-path data/raw/WA_Fn-UseC_-Telco-Customer-Churn.csv --artifact-dir artifacts
+python -m src.train --data-path data/raw/Telecom_customer\\ churn.csv --artifact-dir artifacts
 ```
 
 Optional model subset:
 
 ```bash
-python -m src.train --data-path data/raw/WA_Fn-UseC_-Telco-Customer-Churn.csv --models logistic_regression
+python -m src.train --data-path data/raw/Telecom_customer\\ churn.csv --models logistic_regression
 ```
 
 Optional missingness ablation (drop columns above threshold):
@@ -73,7 +73,7 @@ python -m src.train --data-path data/raw/Telecom_customer\\ churn.csv --models l
 ## Run Evaluation
 
 ```bash
-python -m src.evaluate --model-path artifacts/best_model.joblib --data-path data/raw/WA_Fn-UseC_-Telco-Customer-Churn.csv --artifact-dir artifacts
+python -m src.evaluate --model-path artifacts/best_model.joblib --data-path data/raw/Telecom_customer\\ churn.csv --artifact-dir artifacts
 ```
 
 ## Smoke Test

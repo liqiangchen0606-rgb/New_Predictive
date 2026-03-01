@@ -191,7 +191,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument(
         "--data-path",
         type=str,
-        default="data/raw/WA_Fn-UseC_-Telco-Customer-Churn.csv",
+        default="data/raw/Telecom_customer churn.csv",
         help="Path to raw Telco churn CSV.",
     )
     parser.add_argument(
