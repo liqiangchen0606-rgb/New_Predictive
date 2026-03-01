@@ -26,7 +26,7 @@ pip install -r requirements.txt
 
 ### XGBoost Note (macOS)
 
-Section 4 includes optional XGBoost benchmarking. On macOS, XGBoost may require OpenMP runtime:
+Section 4 includes XGBoost benchmarking. On macOS, XGBoost may require OpenMP runtime:
 
 ```bash
 brew install libomp

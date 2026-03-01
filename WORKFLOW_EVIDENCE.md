@@ -20,7 +20,7 @@ All notable coursework-repo changes are recorded here.
 
 - `requirements.txt`:
   - added `seaborn>=0.13`
-  - added `xgboost>=2.0` (optional Section 4 model)
+  - added `xgboost>=2.0` (Section 4 model)
 - `README.md`:
   - added macOS note for XGBoost/OpenMP dependency (`brew install libomp`)
   - documented fallback behavior when XGBoost cannot load
@@ -53,23 +53,26 @@ All notable coursework-repo changes are recorded here.
     - added explanatory note for transformed feature dimension growth after preprocessing
     - corrected serialization bug by removing lambda-based transformers and replacing them with sklearn-native preprocessing branches for numeric, object-categorical, and binary-flag features
   - Implemented Section 4 model exploration workflow:
-    - model zoo with baseline + multiple model families (plus optional XGBoost)
+    - model zoo with baseline + multiple model families (plus XGBoost)
     - 5-fold stratified cross-validation on training split only
     - metrics: PR-AUC (primary), ROC-AUC, F1 + runtime logging
     - saved ranked comparison to `artifacts/model_comparison.csv`
     - identified top-2 shortlist candidates for Section 5
+    - added separate Section 4 ablation tests for:
+      - dropping selected high-missing lower-priority fields
+      - evaluating whether engineered features add value beyond the simplified baseline
+    - added a Section 4 ablation summary cell to identify the strongest-performing feature-set variant before Section 5
     - corrected metric framing after review:
       - PR-AUC kept as primary for business alignment (identifying churners)
       - ROC-AUC retained as complementary reporting metric because the dataset is relatively balanced
       - noted that lower real-world churn prevalence could reduce absolute PR-AUC / precision
   - Implemented Section 5 tuning/evaluation workflow:
-    - training-only hyperparameter search, threshold tuning, and one-time final test evaluation
+    - training-only hyperparameter search for the top 2 shortlisted models, threshold tuning, and one-time final test evaluation
     - saved tuning outputs, model artifact, threshold artifact, metrics, plots, and error analysis
   - Revised Section 5 for computational constraints:
-    - tuned XGBoost only
-    - initially reduced `RandomizedSearchCV` to 12 iterations, then increased to a moderate 18-iteration search
-    - used 3-fold CV for tuning and out-of-fold threshold predictions
-    - documented this as a runtime-conscious compromise
+    - the earlier simplified version tuned XGBoost only, but the final workflow returns to tuning both shortlisted models
+    - uses moderate randomized searches with 3-fold CV for tuning and out-of-fold threshold predictions
+    - documents this as a runtime-conscious compromise rather than a change in metric logic
   - Implemented Section 6 final solution workflow:
     - replaced the placeholder checklist with an artifact-driven narrative summary (no rerun of modelling)
     - loaded saved metrics, threshold, tuning, and split artifacts to populate final model summary and business interpretation

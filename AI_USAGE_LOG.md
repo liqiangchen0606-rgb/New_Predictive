@@ -17,6 +17,7 @@ Track meaningful AI-assisted work for appendix evidence.
 - Manual Verification: Reviewed file structure and imports; checked notebook alignment.
 - Decision: Modified
 - Notes: Kept single main notebook and removed duplicate scaffold notebook.
+![entry1_Repo_scaffold.png](entry1_Repo_scaffold.png)
 
 ## Entry 2 - Section 1 Problem Framing
 
@@ -57,6 +58,8 @@ Track meaningful AI-assisted work for appendix evidence.
 - Manual Verification: Confirmed dataset loads from `data/raw/Telecom_customer churn.csv` and Section 2 cells run with fallback loader for `df_raw`.
 - Decision: Accepted
 - Notes: EDA intentionally avoids imputation/encoding/scaling; these are deferred to Section 3 pipeline stage.
+![entry5_eda.png](entry5_eda.png)
+![entry5_eda2.png](entry5_eda2.png)
 
 ## Entry 6 - Agent Mistake in EDA Labels (Corrected by User Request)
 
@@ -67,6 +70,7 @@ Track meaningful AI-assisted work for appendix evidence.
 - Manual Verification: User flagged that variable meanings were unclear to readers.
 - Decision: Modified
 - Notes: User correction required; notebook was updated to use human-readable labels for chart titles, x-axis labels, and legend text.
+![entry6_label_correction.png](entry6_label_correction.png)
 
 ## Entry 7 - Section 3 Data Preparation Implementation
 
@@ -77,16 +81,39 @@ Track meaningful AI-assisted work for appendix evidence.
 - Manual Verification: Confirmed preprocessing fit runs and outputs transformed dimension; reviewed anti-leakage rule (fit only on training split).
 - Decision: Accepted
 - Notes: Added explicit explanation in Section 3 for why transformed feature count exceeds raw feature count.
+![entry7_section3_dataPrep.png](entry7_section3_dataPrep.png)
+![entry7_section3_dataPrep2.png](entry7_section3_dataPrep2.png)
+![entry7_section3_dataPrep3.png](entry7_section3_dataPrep3.png)
 
 ## Entry 8 - Section 4 Model Comparison Setup
 
 - Date: 2026-02-26
 - Stage: Section 4
 - Prompt/Task: Implement model exploration and shortlist workflow using cross-validation only
-- AI Output Summary: Added model zoo (Dummy, Logistic Regression, Random Forest, HistGradientBoosting, optional XGBoost), 5-fold `StratifiedKFold`, `cross_validate` scoring (`average_precision`, `roc_auc`, `f1`), runtime logging (`fit_time_mean`, `score_time_mean`), sorted comparison table save to `artifacts/model_comparison.csv`, and top-2 shortlist output.
+- AI Output Summary: Added model zoo (Dummy, Logistic Regression, Random Forest, HistGradientBoosting, XGBoost), 5-fold `StratifiedKFold`, `cross_validate` scoring (`average_precision`, `roc_auc`, `f1`), runtime logging (`fit_time_mean`, `score_time_mean`), sorted comparison table save to `artifacts/model_comparison.csv`, and top-2 shortlist output.
 - Manual Verification: Confirmed Section 4 code explicitly avoids test-set usage and saves comparison artifacts.
 - Decision: Accepted
 - Notes: PR-AUC remains the primary ranking metric for shortlisting.
+
+## Entry 8A - Section 4 Ablation Test for High-Missing Feature Drop
+
+- Date: 2026-02-26
+- Stage: Section 4
+- Prompt/Task: Test whether dropping selected high-missing household/profile features is justified by cross-validated performance
+- AI Output Summary: Added a dedicated Section 4 ablation cell comparing the retained baseline feature set against a variant that drops the selected high-missing lower-priority fields, using the same 5-fold CV discipline and a fixed tree-based model.
+- Manual Verification: User reviewed the ablation summary and confirmed that the dropped-feature variant performed better in the high-missing feature drop test.
+- Decision: Accepted
+- Notes: This was positioned as evidence for the Section 3 simplification rather than a new preparation rule.
+
+## Entry 8B - Section 4 Ablation Test for Engineered Feature Value-Add
+
+- Date: 2026-02-26
+- Stage: Section 4
+- Prompt/Task: Test whether the engineered features improve performance beyond the simplified retained baseline
+- AI Output Summary: Added a second dedicated Section 4 ablation cell comparing the dropped-feature baseline against the same feature set plus engineered variables, then added a summary cell identifying the strongest-performing variant across the two tests.
+- Manual Verification: User reviewed the ablation summary and confirmed that the engineered-feature variant produced a modest PR-AUC improvement after the selected high-missing fields were dropped.
+- Decision: Accepted
+- Notes: This supports retaining the final combined feature set while keeping the gain framed as modest rather than dramatic.
 
 ## Entry 9 - Agent Metric Framing Mistake After Section 4 (Corrected)
 
@@ -102,7 +129,7 @@ Track meaningful AI-assisted work for appendix evidence.
 
 - Date: 2026-02-26
 - Stage: Environment / Section 4
-- Prompt/Task: Make dependency setup complete for optional XGBoost evaluation
+- Prompt/Task: Make dependency setup complete for XGBoost evaluation
 - AI Output Summary: Updated `requirements.txt` to include `seaborn` and `xgboost`; updated README with macOS OpenMP (`libomp`) note and fallback behavior.
 - Manual Verification: User confirmed local `brew` + `libomp` install and XGBoost availability.
 - Decision: Accepted
@@ -113,10 +140,10 @@ Track meaningful AI-assisted work for appendix evidence.
 - Date: 2026-02-26
 - Stage: Section 5
 - Prompt/Task: Implement full tuning/evaluation workflow for shortlisted models
-- AI Output Summary: Added Section 5 code for train-only hyperparameter tuning, threshold tuning using out-of-fold training predictions, one-time held-out test evaluation, metrics/plots saving, and error analysis outputs.
+- AI Output Summary: Added Section 5 code for train-only hyperparameter tuning of the top 2 shortlisted models (XGBoost and HistGradientBoosting), threshold tuning using out-of-fold training predictions, one-time held-out test evaluation, metrics/plots saving, and error analysis outputs.
 - Manual Verification: Confirmed notebook structure includes Section 5 code plus narrative block, with explicit delayed test-set usage.
 - Decision: Accepted
-- Notes: The initial design used a broader search and multiple model candidates before runtime constraints were reconsidered.
+- Notes: The initial design tuned two shortlisted models before runtime constraints were reconsidered.
 
 ## Entry 12 - Section 5 Runtime-Constrained Simplification
 

@@ -14,10 +14,10 @@
 - [x] Complete Section 2 (EDA) with leakage and imbalance checks.
 - [x] Revise Section 2 plot labels to human-readable variable meanings (user-corrected agent mistake).
 - [x] Implement Section 3 preparation workflow (leakage-safe split + preprocessing + schema artifacts, including dropping selected high-missing low-priority fields).
-- [x] Implement Section 4 CV model comparison workflow and shortlist logic.
+- [x] Implement Section 4 CV model comparison workflow, shortlist logic, and feature-set ablation tests.
 - [x] Document corrected Section 4 metric rationale (PR-AUC primary, ROC-AUC complementary for balanced data).
-- [x] Update dependency/docs for optional XGBoost execution (requirements + macOS note).
-- [x] Implement Section 5 tuning/evaluation workflow with runtime-conscious simplification.
+- [x] Update dependency/docs for XGBoost execution (requirements + macOS note).
+- [x] Implement Section 5 tuning/evaluation workflow with runtime-conscious tuning of the 2 shortlisted models.
 - [x] Document explicit agent-made bug and correction (serialization failure from lambda transformers).
 - [x] Increase Section 5 tuning budget moderately (18 iterations, wider XGBoost search) while keeping runtime practical.
 - [x] Run real training and save real artifacts in `artifacts/`.
