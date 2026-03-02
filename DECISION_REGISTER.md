@@ -51,16 +51,17 @@ This file tracks the key modelling and workflow decisions made during the course
 - Rationale: Section 4 ablation tests were used to validate feature-set choices before the final benchmark was locked; engineered features remained a documented candidate branch, but the final pipeline was aligned to the dropped-feature baseline after the feature-set review.
 - Owner verification: Manual check that the final artifacts were regenerated with `engineered_features_used_in_final_pipeline` recorded as `false` in `artifacts/feature_schema.json`.
 
-## DR-008: Keep a neutral threshold of 0.50
 
-- Date: 2026-02-26
-- Decision: Use a default classification threshold of `0.50` in the final reported workflow.
-- Rationale: Threshold trade-offs were inspected using out-of-fold training probabilities, but the final cut-off was kept at the standard neutral default so the operational threshold can later be chosen by the firm based on business cost and capacity.
-- Owner verification: Manual check that `artifacts/threshold.json` and final reported metrics both use `0.50`.
-
-## DR-009: Shortlist the top two model families for tuning
+## DR-008: Shortlist the top two model families for tuning
 
 - Date: 2026-02-26
 - Decision: Carry `XGBoost` and `HistGradientBoosting` into Section 5 tuning.
 - Rationale: They were the strongest model families in Section 4 under cross-validated PR-AUC and therefore justified deeper tuning.
 - Owner verification: Manual review of `artifacts/model_comparison.csv` and the Section 4 shortlist output.
+
+## DR-009: Keep a neutral threshold of 0.50
+
+- Date: 2026-02-26
+- Decision: Use a default classification threshold of `0.50` in the final reported workflow.
+- Rationale: Threshold trade-offs were inspected using out-of-fold training probabilities, but the final cut-off was kept at the standard neutral default so the operational threshold can later be chosen by the firm based on business cost and capacity.
+- Owner verification: Manual check that `artifacts/threshold.json` and final reported metrics both use `0.50`.
