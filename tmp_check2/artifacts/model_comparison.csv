@@ -1,2 +1,0 @@
-model,drop_high_missing,missing_threshold,dropped_cols_count,cv_pr_auc_mean,cv_pr_auc_std,cv_f1_mean,cv_f1_std,cv_roc_auc_mean,cv_roc_auc_std
-logistic_regression,False,0.4,0,0.14766523090071185,0.040684060469089636,0.0,0.0,0.3109166666666667,0.15366097241799703
