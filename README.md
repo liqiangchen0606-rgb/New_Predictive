@@ -50,6 +50,24 @@ If the extracted file has a different name, rename it to:
 
 - `Telecom_customer churn.csv`
 
+## Run Instructions
+
+1. Install requirements:
+
+```bash
+python3 -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
+```
+
+2. Place the CSV in:
+
+- `data/raw/Telecom_customer churn.csv`
+
+3. Run the workflow in one of these ways:
+- Notebook route: open `MSIN0097_IndividualA.ipynb` and run the sections in order.
+- CLI route: use `src.train.py` and `src.evaluate.py` with the commands below.
+
 ## Run Training
 
 From repo root:
