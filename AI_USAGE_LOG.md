@@ -17,7 +17,7 @@ Track meaningful AI-assisted work for appendix evidence.
 - Manual Verification: Reviewed file structure and imports; checked notebook alignment.
 - Decision: Modified
 - Notes: Kept single main notebook and removed duplicate scaffold notebook.
-![entry1_Repo_scaffold.png](entry1_Repo_scaffold.png)
+![entry1_Repo_scaffold.png](AI_usage_Screenshots/entry1_Repo_scaffold.png)
 
 ## Entry 2 - Section 1 Problem Framing
 
@@ -58,8 +58,8 @@ Track meaningful AI-assisted work for appendix evidence.
 - Manual Verification: Confirmed dataset loads from `data/raw/Telecom_customer churn.csv` and Section 2 cells run with fallback loader for `df_raw`.
 - Decision: Accepted
 - Notes: EDA intentionally avoids imputation/encoding/scaling; these are deferred to Section 3 pipeline stage.
-![entry5_eda.png](entry5_eda.png)
-![entry5_eda2.png](entry5_eda2.png)
+![entry5_eda.png](AI_usage_Screenshots/entry5_eda.png)
+![entry5_eda2.png](AI_usage_Screenshots/entry5_eda2.png)
 
 ## Entry 6 - Agent Mistake in EDA Labels (Corrected by User Request)
 
@@ -70,7 +70,7 @@ Track meaningful AI-assisted work for appendix evidence.
 - Manual Verification: User flagged that variable meanings were unclear to readers.
 - Decision: Modified
 - Notes: User correction required; notebook was updated to use human-readable labels for chart titles, x-axis labels, and legend text.
-![entry6_label_correction.png](entry6_label_correction.png)
+![entry6_label_correction.png](AI_usage_Screenshots/entry6_label_correction.png)
 
 ## Entry 7 - Section 3 Data Preparation Implementation
 
@@ -81,9 +81,9 @@ Track meaningful AI-assisted work for appendix evidence.
 - Manual Verification: Confirmed preprocessing fit runs and outputs transformed dimension; reviewed anti-leakage rule (fit only on training split).
 - Decision: Accepted
 - Notes: Added explicit explanation in Section 3 for why transformed feature count exceeds raw feature count.
-![entry7_section3_dataPrep.png](entry7_section3_dataPrep.png)
-![entry7_section3_dataPrep2.png](entry7_section3_dataPrep2.png)
-![entry7_section3_dataPrep3.png](entry7_section3_dataPrep3.png)
+![entry7_section3_dataPrep.png](AI_usage_Screenshots/entry7_section3_dataPrep.png)
+![entry7_section3_dataPrep2.png](AI_usage_Screenshots/entry7_section3_dataPrep2.png)
+![entry7_section3_dataPrep3.png](AI_usage_Screenshots/entry7_section3_dataPrep3.png)
 
 ## Entry 8 - Section 4 Model Comparison Setup
 
