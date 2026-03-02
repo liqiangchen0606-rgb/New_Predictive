@@ -15,6 +15,7 @@ All notable coursework-repo changes are recorded here.
 - Smoke test scaffold: `tests/tests_smoke.py`
 - Project setup docs: `README.md`, `requirements.txt`
 - Repository hygiene: `.gitignore`
+- Appendix evidence file: `MISTAKE_LOG.md`
 
 ### Updated
 
@@ -24,6 +25,7 @@ All notable coursework-repo changes are recorded here.
 - `README.md`:
   - added macOS note for XGBoost/OpenMP dependency (`brew install libomp`)
   - documented fallback behavior when XGBoost cannot load
+  - added `MISTAKE_LOG.md` to the appendix tracking file list
 - `MSIN0097_IndividualA.ipynb`:
   - Added coursework-aligned section structure.
   - Implemented Section 1 content:

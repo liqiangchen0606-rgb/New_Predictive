@@ -97,6 +97,7 @@ Training/evaluation writes to:
 - `WORKFLOW_EVIDENCE.md`: dated record of code/notebook changes and workflow evidence.
 - `DECISION_REGISTER.md`: key modelling/process decisions and verification ownership.
 - `AI_USAGE_LOG.md`: evidence log of AI-assisted work and manual verification decisions.
+- `MISTAKE_LOG.md`: explicit record of AI-generated mistakes that were caught and corrected.
 
 ## Notes
 

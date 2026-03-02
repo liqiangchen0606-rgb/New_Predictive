@@ -23,6 +23,7 @@
 - [x] Run real training and save real artifacts in `artifacts/`.
 - [x] Rerun Sections 4-6 on the finalized dropped-feature, no-engineering feature set and refresh the final report wording.
 - [x] Build appendix-ready agent usage evidence and decision table.
+- [x] Add a dedicated `MISTAKE_LOG.md` documenting AI-generated mistakes and their corrections.
 
 ## Immediate Next Step
 
